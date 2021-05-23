@@ -26,6 +26,26 @@ class PriceController extends Controller
     }
 
     /**
+     * @OA\Get(
+     *     tags={"price-conversion"},
+     *     summary="Returns a list of currencies converted from amount",
+     *     description="Returns a json of currencies",
+     *     path="/api/v1/price-conversion/{amount}",
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="amount",
+     *         description="Amount to be converted",
+     *         @OA\Schema(
+     *             required={"amount"},
+     *             type="number",
+     *             minimum=1,
+     *             maximum=999999,
+     *         ),
+     *     ),
+     *     @OA\Response(response="200", description="A list with currencies converted"),
+     *     @OA\Response(response=422, description="Missing Data")
+     * ),
+     *
      * @param Request $request
      * @param float   $amount
      * @return JsonResponse

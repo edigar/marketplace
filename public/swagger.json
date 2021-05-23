@@ -1,0 +1,51 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Product currency converter",
+        "license": {
+            "name": "MIT"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/",
+            "description": "API server"
+        }
+    ],
+    "paths": {
+        "/api/v1/price-conversion/{amount}": {
+            "get": {
+                "tags": [
+                    "price-conversion"
+                ],
+                "summary": "Returns a list of currencies converted from amount",
+                "description": "Returns a json of currencies",
+                "operationId": "App\\Http\\Controllers\\PriceController::conversion",
+                "parameters": [
+                    {
+                        "name": "amount",
+                        "in": "path",
+                        "description": "Amount to be converted",
+                        "schema": {
+                            "required": [
+                                "amount"
+                            ],
+                            "type": "number",
+                            "maximum": 999999,
+                            "minimum": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with currencies converted"
+                    },
+                    "422": {
+                        "description": "Missing Data"
+                    }
+                }
+            }
+        }
+    }
+}

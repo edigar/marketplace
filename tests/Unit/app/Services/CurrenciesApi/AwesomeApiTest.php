@@ -3,7 +3,6 @@
 namespace Unit\app\Services\CurrenciesApi;
 
 use App\Services\CurrenciesApi\AwesomeApi;
-use GuzzleHttp\Exception\RequestException;
 use PHPUnit\Framework\TestCase;
 
 class AwesomeApiTest extends TestCase

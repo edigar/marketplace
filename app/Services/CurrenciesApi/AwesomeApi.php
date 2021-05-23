@@ -84,7 +84,7 @@ class AwesomeApi implements CurrencyApiInterface
             throw new CurrencyApiException('Currency api problem', 500);
         }
 
-        return json_decode($response->getBody()->getContents());
+        return $response->getBody() != null ? json_decode($response->getBody()->getContents()) : new \stdClass();
     }
 
     /**

@@ -3,13 +3,15 @@ LABEL maintainer='Edigar Herculano <edigarhdev@gmail.com>'
 
 RUN a2enmod rewrite
 
-#Install Composer
+# Install Composer
 RUN apt-get update \
 && apt-get install -y curl git unzip libpq-dev \
 && curl -s https://getcomposer.org/installer | php \
 && mv composer.phar /usr/local/bin/composer
 
 RUN docker-php-ext-install pdo_mysql
+
+RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 RUN mkdir /app
 COPY ./ /app/

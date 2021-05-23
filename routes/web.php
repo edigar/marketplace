@@ -18,5 +18,5 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
-    $router->get('price-conversion/{amount}', 'PriceController@conversion');
+    $router->get('price-conversion/{amount}', ['as' => 'price-conversion', 'uses' => 'PriceController@conversion']);
 });

@@ -1,0 +1,29 @@
+version: '3.7'
+volumes:
+  dbdata:
+networks:
+  sbf:
+services:
+  db:
+    image: mysql:8
+    container_name: sbf_db
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sbf
+    ports:
+      - 3306:3306
+    networks:
+      - sbf
+  app:
+    build: .
+    container_name: sbf_api
+    volumes:
+      - ./:/app
+    ports:
+      - 80:80
+    networks:
+      - sbf
+    depends_on:
+      - db

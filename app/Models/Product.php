@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 /**
  * Class Product
  * @package App\Models
@@ -31,6 +33,8 @@ namespace App\Models;
  */
 class Product extends ModelUuid
 {
+    use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *

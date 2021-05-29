@@ -24,6 +24,6 @@ class CurrencyApiException extends \Exception
      */
     public function render($request): JsonResponse
     {
-        return response()->json($this->getMessage(), $this->getCode());
+        return response()->json(['error' => $this->getMessage()], $this->getCode());
     }
 }

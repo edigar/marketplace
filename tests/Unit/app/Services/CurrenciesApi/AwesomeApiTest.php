@@ -22,7 +22,8 @@ class AwesomeApiTest extends TestCase
 
         $awesomeApi = new AwesomeApi($httpClientMock, 'test.com', ['USD', 'EUR']);
 
-        $awesomeApi->getExchangeRate();
+        $exchangeRates = $awesomeApi->getExchangeRate();
+        $this->assertIsObject($exchangeRates);
     }
 
     /**

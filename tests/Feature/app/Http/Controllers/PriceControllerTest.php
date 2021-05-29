@@ -37,6 +37,15 @@ class PriceControllerTest extends TestCase
     public function testRequestShouldReturnSuccess()
     {
         $request = $this->get(route('price-conversion', ['amount' => 10]));
-        $request->assertResponseStatus(200);
+        $request->assertResponseOk();
+    }
+
+    public function testShouldReturnInternalServerErrorIfCurrenciesConfigHasError()
+    {
+        config(['app.valid_currencies' => ['WRONG']]);
+
+        $request = $this->get(route('price-conversion', ['amount' => 10]));
+        $request->assertResponseStatus(500);
+        $request->seeJson(["error" => "Currency api error. API message: moeda nao encontrada BRL-WRONG"]);
     }
 }

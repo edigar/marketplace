@@ -77,5 +77,9 @@ class ProductControllerTest extends TestCase
 
         $request->assertResponseOk();
         $request->seeJsonStructure(['id', 'description', 'price', 'created_at', 'updated_at']);
+        $request->seeInDatabase(
+            'products',
+            ['description' => $payload['description'], 'price' => $payload['price']],
+        );
     }
 }

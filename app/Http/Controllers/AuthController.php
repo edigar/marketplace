@@ -47,7 +47,9 @@ class AuthController extends Controller
      *         response=200,
      *         description="token",
      *         @OA\JsonContent(properties={
-     *              @OA\Property(property="token", type="string"),
+     *             @OA\Property(property="access_token", type="string"),
+     *             @OA\Property(property="token_type", type="string"),
+     *             @OA\Property(property="expires_in", type="integer"),
      *         }),
      *     ),
      *     @OA\Response(response=422, description="Missing Data"),
@@ -65,16 +67,8 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        try {
-            if (!$token = $this->jwt->attempt($request->only('email', 'password'))) {
-                return response()->json(['user_not_found'], 404);
-            }
-        } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-            return response()->json(['token_expired'], 500);
-        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-            return response()->json(['token_invalid'], 500);
-        } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
-            return response()->json(['token_absent' => $e->getMessage()], 500);
+        if (!$token = $this->jwt->attempt($request->only('email', 'password'))) {
+            return response()->json(['user_not_found'], 404);
         }
 
         return $this->respondWithToken($token);

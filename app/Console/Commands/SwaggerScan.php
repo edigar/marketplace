@@ -45,7 +45,6 @@ class SwaggerScan extends Command
         $outputPath = dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR . 'public/swagger.json';
         $this->info('Scanning ' . $path);
         $openApi = \OpenApi\Generator::scan([$path]);
-        header('Content-Type: application/json');
         file_put_contents($outputPath, $openApi->toJson());
         $this->info('Output ' . $outputPath);
     }

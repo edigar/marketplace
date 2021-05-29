@@ -1,9 +1,10 @@
 /vendor
 /.idea
-/reports
+/tests/coverage
 Homestead.json
 Homestead.yaml
 .env
 .phpunit.result.cache
 composer.lock
-/tests/coverage
+public/swagger.json
+

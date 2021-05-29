@@ -28,4 +28,12 @@ class AppServiceProvider extends ServiceProvider
             return new AwesomeApi(new Client(), config('app.currency_api'), config('app.valid_currencies'));
         });
     }
+
+    public function boot()
+    {
+//        User::observe(UserObserver::class);
+//        Retailer::observe(Retailer::class);
+//        Passport::ignoreMigrations();
+
+    }
 }

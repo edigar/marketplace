@@ -10,7 +10,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
  * @OA\OpenApi(
  *     @OA\Info(
  *         version="1.0.0",
- *         title="Product currency converter",
+ *         title="Marketplace",
  *         @OA\License(name="MIT")
  *     ),
  *     @OA\Server(

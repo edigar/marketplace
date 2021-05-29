@@ -18,6 +18,7 @@ class PriceController extends Controller
     /**
      * Create a new controller instance.
      *
+     * @param CurrencyServiceInterface $currencyService
      * @return void
      */
     public function __construct(CurrencyServiceInterface $currencyService)
@@ -27,10 +28,10 @@ class PriceController extends Controller
 
     /**
      * @OA\Get(
-     *     tags={"price-conversion"},
-     *     summary="Returns a list of currencies converted from amount",
-     *     description="Returns a json of currencies",
-     *     path="/api/v1/price-conversion/{amount}",
+     *     tags={"Price-conversion"},
+     *     summary="Convert an amount to a valid currencies list",
+     *     description="Returns a json values in valid currencies",
+     *     path="/api/price-conversion/{amount}",
      *     @OA\Parameter(
      *         in="path",
      *         name="amount",
@@ -56,8 +57,8 @@ class PriceController extends Controller
         $request['amount'] = $amount;
         $this->validate($request , ['amount'=>'required|numeric|between:0,999999']);
 
-        $result = $this->currencyService->convert($amount);
+        $prices = $this->currencyService->convert($amount);
 
-        return response()->json($result);
+        return response()->json($prices);
     }
 }

@@ -14,8 +14,6 @@ class AuthControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
-    private $token;
-
     /**
      * @inheritDoc
      */

@@ -4,6 +4,10 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
+/**
+ * Class SwaggerScan
+ * @package App\Console\Commands
+ */
 class SwaggerScan extends Command
 {
     /**

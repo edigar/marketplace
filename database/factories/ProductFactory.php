@@ -21,7 +21,7 @@ class ProductFactory extends Factory
     {
         return [
             'id' => $this->faker->uuid,
-            'description' => $this->faker->paragraph,
+            'description' => $this->faker->words(3, true),
             'price' => $this->faker->randomFloat(2, 2, 999999),
         ];
     }

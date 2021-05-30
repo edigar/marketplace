@@ -15,7 +15,7 @@ class ExampleTest extends TestCase
         $this->get('/');
 
         $this->assertEquals(
-            $this->app->version(), $this->response->getContent()
+            'Marketplace project (pre-alpha)', $this->response->getContent()
         );
     }
 }

@@ -152,10 +152,11 @@ composer coverage
 
 ## Documentation
 
-In order to document the endpoints, you can use openapi schemas and see the result with swagger, already installed and working.
-To generate documentation run `php artisan swagger:scan` at root of the project.
+In order to document the endpoints, you can use openapi schemas and see the result with [swagger](https://swagger.io/docs/specification/2-0/what-is-swagger/).
+To generate documentation run `php artisan swagger:scan` at root of the project. 
 
-Then you'll see the documentation on `public` directory. You can open `swagger-ui` file on browser, in order to see endpoints documentation.
+A `swagger.json` file will be generated in public folder. Some IDEs allow visualization with an embedded server and opening `swagger-ui.html`.
+Easy viewing will soon be added.
 
 ### Docker
 

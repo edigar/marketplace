@@ -14,14 +14,15 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return 'Marketplace project (pre-alpha)';
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('auth/login', ['as' => 'authenticate', 'uses' => 'AuthController@login']);
     $router->get('price-conversion/{amount}', ['as' => 'price-conversion', 'uses' => 'PriceController@conversion']);
     $router->get('product/{productId}/prices', ['as' => 'product-prices', 'uses' => 'ProductController@showPrices']);
-    $router->get('product/{id}', ['as' => 'product-get', 'uses' => 'ProductController@show']);
+    $router->get('product/{id}', ['as' => 'product-get-id', 'uses' => 'ProductController@show']);
+    $router->get('product', ['as' => 'product-get', 'uses' => 'ProductController@index']);
 });
 
 $router->group(['middleware' => 'auth:api', 'prefix' => 'api/auth'], function ($router) {

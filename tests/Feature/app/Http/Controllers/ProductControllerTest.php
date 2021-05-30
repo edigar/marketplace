@@ -24,9 +24,15 @@ class ProductControllerTest extends TestCase
         return require './bootstrap/app.php';
     }
 
+    public function testRequestShouldGetAllProducts()
+    {
+        $request = $this->get(route('product-get'));
+        $request->assertResponseOk();
+    }
+
     public function testRequestGetProductShouldReturnNotFoundIfProductNonExists()
     {
-        $request = $this->get(route('product-get', ['id' => 'abc-123']));
+        $request = $this->get(route('product-get-id', ['id' => 'abc-123']));
 
         $request->assertResponseStatus(404);
     }
@@ -35,7 +41,7 @@ class ProductControllerTest extends TestCase
     {
         $product = Product::factory()->create();
 
-        $request = $this->get(route('product-get', ['id' => $product->id]));
+        $request = $this->get(route('product-get-id', ['id' => $product->id]));
 
         $request->assertResponseOk();
         $request->seeJsonContains([

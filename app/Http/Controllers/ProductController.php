@@ -66,6 +66,25 @@ class ProductController extends Controller
     /**
      * @OA\Get(
      *     tags={"Product"},
+     *     summary="Get a list of products",
+     *     description="Returns a json of products",
+     *     path="/api/product",
+     *     @OA\Response(response="200", description="A list of product"),
+     * ),
+     *
+     * @return JsonResponse
+     */
+    public function index(): JsonResponse
+    {
+        /** @var \App\Models\Product $product */
+        $products = Product::all();
+
+        return response()->json($products);
+    }
+
+    /**
+     * @OA\Get(
+     *     tags={"Product"},
      *     summary="Get a product by id",
      *     description="Returns a json of one product",
      *     path="/api/product/{id}",

@@ -17,5 +17,6 @@ RUN mkdir /app
 COPY ./ /app/
 RUN rm -r /var/www/html && ln -s /app/public /var/www/html
 
-EXPOSE 80
+WORKDIR /app/
 
+EXPOSE 80

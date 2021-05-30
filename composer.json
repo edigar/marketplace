@@ -1,7 +1,7 @@
 {
-    "name": "laravel/lumen",
-    "description": "Product price converter to different currencies.",
-    "keywords": ["currency", "laravel", "lumen"],
+    "name": "edigar/marketplace",
+    "description": "Marketplace API",
+    "keywords": ["marketplace","currency", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
     "require": {

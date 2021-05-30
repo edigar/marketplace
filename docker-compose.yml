@@ -2,24 +2,24 @@ version: '3.7'
 volumes:
   dbdata:
 networks:
-  sbf:
+  marketplace:
 services:
   db:
     image: mysql:8
-    container_name: sbf_db
+    container_name: marketplace_db
     volumes:
       - dbdata:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sbf
+      MYSQL_DATABASE: marketplace
     ports:
       - 3306:3306
     networks:
-      - sbf
+      - marketplace
   app:
     build: .
-    image: sbf_api
-    container_name: sbf_api
+    image: marketplace_api
+    container_name: marketplace_api
     volumes:
       - ./:/app
       - ./docker/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
@@ -27,6 +27,6 @@ services:
     ports:
       - 80:80
     networks:
-      - sbf
+      - marketplace
     depends_on:
       - db

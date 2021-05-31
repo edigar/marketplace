@@ -91,6 +91,10 @@ Maybe you could think "Why creates this user?". It's for fast manual testing and
 
 Application is already to use.
 
+### Authentication
+
+This API implements JWT authentication, so to consume resources protected by authentication, after logging in with your previously registered user, add Bearer authentication with the token received at login to your header.
+
 ## Tests
 
 ### Tests on docker

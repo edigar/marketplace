@@ -1,6 +1,6 @@
 # Marketplace
 
-A marketplace system.
+A marketplace API.
 
 ## Requirements
 

@@ -84,8 +84,9 @@ By default, an user is available for login, with these credentials:
     "password": "admin123"
 }
 ```
-**Warning:** User with public default login is a huge security issue. This project is still under construction (contributions are welcome :slightly_smiling_face:). 
-Meantime, implement your own user control. In this project, you can find the UserController file to start this implementation and then eliminate the user seed.
+> [!WARNING] 
+> User with public default login is a huge security issue. This project is still under construction (contributions are welcome :slightly_smiling_face:). 
+> Meantime, implement your own user control. In this project, you can find the UserController file to start this implementation and then eliminate the user seed.
 
 Maybe you could think "Why creates this user?". It's for fast manual testing and visualization of features by authentication routes.
 

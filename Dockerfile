@@ -19,4 +19,6 @@ RUN rm -r /var/www/html && ln -s /app/public /var/www/html
 
 WORKDIR /app/
 
+RUN composer install
+
 EXPOSE 80

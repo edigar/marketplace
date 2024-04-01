@@ -27,9 +27,6 @@ Execute:
 # Build/start container
 docker-compose up -d
 
-# Install dependencies
-docker exec -ti marketplace_api composer install
-
 # Execute migrate
 docker exec -ti marketplace_api php artisan migrate:fresh --seed
 

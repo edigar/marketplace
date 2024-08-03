@@ -8,7 +8,7 @@
         "php": "^7.3|^8.0",
         "guzzlehttp/guzzle": "^7.3",
         "laravel/lumen-framework": "^11.0",
-        "tymon/jwt-auth": "^1.0",
+        "tymon/jwt-auth": "^2.1",
         "zircote/swagger-php": "^4.8"
     },
     "require-dev": {
